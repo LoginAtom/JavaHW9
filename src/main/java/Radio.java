@@ -15,10 +15,23 @@ public class Radio {
 
     //Сеттеры
     public void setCurrentStation(int newCurrentStation) {
+        if (newCurrentStation < 0) {
+            return;
+        }
+        if (newCurrentStation > 9) {
+            return;
+        }
         currentStation = newCurrentStation;
     }
 
+
     public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
+        }
         currentVolume = newCurrentVolume;
     }
 
@@ -40,6 +53,8 @@ public class Radio {
     public void increaseStation() {
         if (currentStation < 9) {
             currentStation = currentStation + 1;
+        } else {
+            currentStation = 0; // тогда переключаем на первую станцию
         }
     }
 
